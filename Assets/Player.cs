@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public float jumpForce;
     public bool isGrounded;
-    public float maxSpeed = 5f; 
+    public float maxSpeed = 5f;
+    public bool isDead;
+    public GameObject DeadUX;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -31,6 +33,13 @@ public class Player : MonoBehaviour
         if (other.tag == "Ground")
         {
             isGrounded = true;
+        }
+
+        if (other.tag == "Laser")
+        {
+            //dead
+            isDead = true;
+            DeadUX.SetActive(true);
         }
     }
 
