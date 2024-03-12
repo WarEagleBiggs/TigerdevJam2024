@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private void FixedUpdate()
+    public float speed;
+    private void Update()
     {
-        transform.Rotate(0,3,0);
+        transform.Rotate(0,3 * speed * Time.deltaTime,0);
     }
 }
